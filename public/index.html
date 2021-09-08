@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="manifest" href="/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff"> 
+	<meta charset="utf-8">
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<script src="index.js"></script>
+	<title></title>
+</head>
+<body>
+	<form action="fileupload" method="post" enctype="multipart/form-data">
+	<input type="file" multiple  name="filetoupload"><br>
+	<input type="submit">
+	</form>
+	<button class="add-button">Add to home screen</button>
+
+	<!--Keep right before body closing -->
+	<script>
+		if('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('service-worker.js').then(function(reg){
+				console.log(reg.scope);
+			}).catch(function(err) {
+				console.log(err);
+			});
+		}
+	</script>
+</body>
+</html>
